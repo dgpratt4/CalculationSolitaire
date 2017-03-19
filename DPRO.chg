@@ -1,0 +1,413 @@
+"6:58:05 PM, Wednesday, March 30, 2016: Compressed sources"!
+
+DevelopmentSessionManager installNew!
+
+SessionManager current defaultResourceLibrary loadFlags: 0.
+SessionManager current stashBootInfo!
+
+"Ensure all structures have calculated size to avoid recompilation messages later"
+ExternalStructure allSubclasses do: [:e | e byteSize]!
+
+"Mark all the booted packages as base"
+Package manager markAllPackagesAsBase!
+
+SessionManager current saveImage!
+
+"6:59:05 PM, Wednesday, March 30, 2016: Image saved"!
+
+"Remove rogue .img and unnecessary .chg files"
+File delete: (File default: SessionManager current imagePath extension: 'img').
+File delete: 'DBOOT.chg'!
+
+SessionManager current quit!
+
+"10:14:59 PM, Thursday, March 16, 2017: Dolphin Smalltalk Professional started"!
+
+"10:40:59 PM, Thursday, March 16, 2017: Image saved"!
+
+Presenter subclass: #CardBackCell
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+CardBackCell guid: (GUID fromString: '{CBCA0C98-3686-44C4-B186-17107C967F3B}')!
+CardBackCell comment: ''!
+!CardBackCell categoriesForClass!MVP-Presenters! !
+!CardBackCell class methodsFor!
+defaultModel
+	^true asValue! !
+!CardBackCell class categoriesFor: #defaultModel!public! !
+
+View subclass: #CardBackCellView
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+CardBackCellView guid: (GUID fromString: '{23789A0B-8E80-4C8F-B0ED-B4325016C652}')!
+CardBackCellView comment: ''!
+!CardBackCellView categoriesForClass!MVP-Resources-Misc! !
+!CardBackCellView methodsFor!
+onPaintRequired: aPaintEvent
+	self model value 
+		ifTrue: 
+			[| cellRect canvas |
+			cellRect := self clientRectangle insetBy: 5.
+			canvas := aPaintEvent canvas.
+			canvas fillRectangle: cellRect color: self colorWhenOn]! !
+!CardBackCellView categoriesFor: #onPaintRequired:!public! !
+
+^ColorDialog showModal!
+
+!CardBackCellView methodsFor!
+colorWhenOn
+	^(RGB red: 244 green: 0 blue: 0)! !
+!CardBackCellView categoriesFor: #colorWhenOn!public! !
+
+!CardBackCellView class methodsFor!
+defaultModel
+	^true asValue! !
+!CardBackCellView class categoriesFor: #defaultModel!public! !
+
+"8:11:18 PM, Saturday, March 18, 2017: Image saved"!
+
+"8:11:20 PM, Saturday, March 18, 2017: Image saved"!
+
+"8:11:21 PM, Saturday, March 18, 2017: Image saved"!
+
+!CardBackCellView methodsFor!
+connectModel
+	self model when: #valueChanged send: #invalidate to: self! !
+!CardBackCellView categoriesFor: #connectModel!public! !
+
+!CardBackCellView methodsFor!
+onLeftButtonReleased: aMouseEvent
+	self presenter trigger: #cellAction! !
+!CardBackCellView categoriesFor: #onLeftButtonReleased:!public! !
+
+!CardBackCellView class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.CardBackCellView) 98 12 0 0 98 2 8 1140850688 1 416 721990 2 ##(Smalltalk.ValueHolder) 0 32 1310726 ##(Smalltalk.EqualitySearchPolicy) 16 524550 ##(Smalltalk.ColorRef) 8 4278190080 0 5 0 0 0 416 983302 ##(Smalltalk.MessageSequence) 202 208 98 1 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 1 1 738 201 201 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 100 0 0 0 100 0 0 0] 98 0 738 193 193 0 27 )! !
+!CardBackCellView class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CardBackCell class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.CardBackCellView) 98 12 0 0 98 2 8 1140850688 1 416 721990 2 ##(Smalltalk.ValueHolder) 0 32 1310726 ##(Smalltalk.EqualitySearchPolicy) 16 524550 ##(Smalltalk.ColorRef) 8 4278190080 0 7 0 0 0 416 983302 ##(Smalltalk.MessageSequence) 202 208 98 1 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 738 201 281 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 99 15 0 0 150 0 0 0] 98 0 738 193 193 0 27 )! !
+!CardBackCell class categoriesFor: #resource_Default_view!public!resources-views! !
+
+cbc := CardBackCell show!
+
+cbc := CardBackCell show.!
+
+cbc model value: false !
+
+cbc model value: false !
+
+cbc model value: true !
+
+Object subclass: #CalculationSolitaireBoard
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+CalculationSolitaireBoard guid: (GUID fromString: '{00C92303-50FB-41A1-BE3A-A10A0EBF5638}')!
+CalculationSolitaireBoard comment: ''!
+!CalculationSolitaireBoard categoriesForClass!Kernel-Objects! !
+Object subclass: #CalculationSolitaireBoard
+	instanceVariableNames: 'cards'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+!CalculationSolitaireBoard class methodsFor!
+withSize: anInteger
+	^super new setSize: anInteger ! !
+!CalculationSolitaireBoard class categoriesFor: #withSize:!public! !
+
+!CalculationSolitaireBoard class methodsFor!
+new	
+	^self withSize: self defaultSize ! !
+!CalculationSolitaireBoard class categoriesFor: #new!public! !
+
+!CalculationSolitaireBoard class methodsFor!
+defaultSize
+	^10! !
+!CalculationSolitaireBoard class categoriesFor: #defaultSize!public! !
+
+!CalculationSolitaireBoard methodsFor!
+setSize: anInteger
+	cards := 1 collect: [:each | true asValue] ! !
+!CalculationSolitaireBoard categoriesFor: #setSize:!public! !
+
+!CalculationSolitaireBoard methodsFor!
+cards
+	^cards! !
+!CalculationSolitaireBoard categoriesFor: #cards!public! !
+
+!CalculationSolitaireBoard methodsFor!
+size 
+	^cards size sqrt truncated ! !
+!CalculationSolitaireBoard categoriesFor: #size!public! !
+
+Shell subclass: #CalculationSolitaireGame
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+CalculationSolitaireGame guid: (GUID fromString: '{B6BBC112-D5A3-41A0-B90D-07425D5AD652}')!
+CalculationSolitaireGame comment: ''!
+!CalculationSolitaireGame categoriesForClass!MVP-Presenters! !
+!CalculationSolitaireGame class methodsFor!
+defaultModel
+	^CalculationSolitaireBoard new ! !
+!CalculationSolitaireGame class categoriesFor: #defaultModel!public! !
+
+!CalculationSolitaireGame methodsFor!
+onViewOpened
+	super onViewOpened.
+	self createCellPresenters! !
+!CalculationSolitaireGame categoriesFor: #onViewOpened!public! !
+
+!CalculationSolitaireGame methodsFor!
+onViewOpened
+	super onViewOpened.
+	self createCardPresenters! !
+!CalculationSolitaireGame categoriesFor: #onViewOpened!public! !
+
+!CalculationSolitaireGame methodsFor!
+createCardPresenters 
+	self clearExistingCardPresenters
+self model cards do: 	
+			 [:eachCard|
+			 |cp|
+			 cp := CardBackCell createIn: self on: eachCard] ! !
+!CalculationSolitaireGame categoriesFor: #createCardPresenters!public! !
+
+!CalculationSolitaireGame methodsFor!
+createCardPresenters 
+	self clearExistingCardPresenters
+	self model cards do: 	
+			 [:eachCard|
+			 |cp|
+			 cp := CardBackCell createIn: self on: eachCard] ! !
+!CalculationSolitaireGame categoriesFor: #createCardPresenters!public! !
+
+!CalculationSolitaireGame methodsFor!
+createCardPresenters 
+	self clearExistingCardPresenters.
+	self model cards do: 	
+			 [:eachCard|
+			 |cp|
+			 cp := CardBackCell createIn: self on: eachCard] ! !
+!CalculationSolitaireGame categoriesFor: #createCardPresenters!public! !
+
+Shell subclass: #CalculationSolitaireGame
+	instanceVariableNames: 'cardPresenters'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+!CalculationSolitaireGame methodsFor!
+initialize 
+	super initialize.
+	cardPresenters := OrderedCollection new! !
+!CalculationSolitaireGame categoriesFor: #initialize!public! !
+
+!CalculationSolitaireGame methodsFor!
+createCardPresenters 
+	self clearExistingCardPresenters.
+	self model cards do: 	
+			 [:eachCard|
+			 |cp|
+			 cp := CardBackCell createIn: self on: eachCard.
+			 cardPresenters add: cp]! !
+!CalculationSolitaireGame categoriesFor: #createCardPresenters!public! !
+
+!CalculationSolitaireGame methodsFor!
+clearExistingCardPresenters
+	cardPresenters do: [:each | each destroy] ! !
+!CalculationSolitaireGame categoriesFor: #clearExistingCardPresenters!public! !
+
+(Color green)!
+
+!CalculationSolitaireGame class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.ShellView) 98 27 0 0 98 2 26607617 131073 416 0 196934 1 ##(Smalltalk.RGB) 70657 0 39 0 0 0 416 1180166 ##(Smalltalk.ProportionalLayout) 234 240 98 0 32 234 256 560 0 0 0 0 0 1 0 0 0 0 1 0 0 983302 ##(Smalltalk.MessageSequence) 202 208 98 3 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 722 1831 1131 416 658 8 #text: 98 1 8 'Calculation Solitaire' 416 658 8 #updateMenuBar 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 146 18 0 0 63 2 0 0] 98 0 722 193 193 0 27 )! !
+!CalculationSolitaireGame class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CalculationSolitaireGame class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.ShellView) 98 27 0 0 98 2 26607617 131073 416 0 196934 1 ##(Smalltalk.RGB) 70657 0 39 0 0 0 416 1180166 ##(Smalltalk.ProportionalLayout) 234 240 98 0 32 234 256 560 0 0 0 0 0 1 0 0 0 0 1 0 0 983302 ##(Smalltalk.MessageSequence) 202 208 98 3 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 722 1831 1131 416 658 8 #text: 98 1 8 'Calculation Solitaire' 416 658 8 #updateMenuBar 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 146 18 0 0 63 2 0 0] 98 0 722 193 193 0 27 )! !
+!CalculationSolitaireGame class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CalculationSolitaireGame class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.ShellView) 98 27 0 0 98 2 26607617 131073 416 0 196934 1 ##(Smalltalk.RGB) 70657 0 39 0 0 0 416 852230 ##(Smalltalk.FramingLayout) 234 240 98 0 234 256 560 0 0 0 0 0 1 0 0 0 0 1 0 0 983302 ##(Smalltalk.MessageSequence) 202 208 98 3 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 722 1831 1131 416 658 8 #text: 98 1 8 'Calculation Solitaire' 416 658 8 #updateMenuBar 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 146 18 0 0 63 2 0 0] 98 0 722 193 193 0 27 )! !
+!CalculationSolitaireGame class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CalculationSolitaireGame methodsFor!
+createCardPresenters 
+	self clearExistingCardPresenters.
+	self view layoutManager.  
+	self model cards do: 	
+			 [:eachCard|
+			 |cp|
+			 cp := CardBackCell createIn: self on: eachCard.
+			 cardPresenters add: cp]! !
+!CalculationSolitaireGame categoriesFor: #createCardPresenters!public! !
+
+!CalculationSolitaireGame class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.ShellView) 98 27 0 0 98 2 26607617 131073 416 0 196934 1 ##(Smalltalk.RGB) 70657 0 39 0 0 0 416 656390 ##(Smalltalk.GridLayout) 3 1 1 1 234 256 98 0 0 0 0 0 0 1 0 0 0 0 1 0 0 983302 ##(Smalltalk.MessageSequence) 202 208 98 3 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 706 1831 1131 416 642 8 #text: 98 1 8 'Calculation Solitaire' 416 642 8 #updateMenuBar 560 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 146 18 0 0 63 2 0 0] 98 0 706 193 193 0 27 )! !
+!CalculationSolitaireGame class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CalculationSolitaireGame methodsFor!
+createCardPresenters 
+	self clearExistingCardPresenters.
+	self view layoutManager rows: self model size. 
+	self model cards do: 	
+			 [:eachCard|
+			 |cp|
+			 cp := CardBackCell createIn: self on: eachCard.
+			 cardPresenters add: cp]! !
+!CalculationSolitaireGame categoriesFor: #createCardPresenters!public! !
+
+!CalculationSolitaireBoard methodsFor!
+setSize: anInteger
+	cards := 1  
+
+! !
+!CalculationSolitaireBoard categoriesFor: #setSize:!public! !
+
+!CalculationSolitaireBoard methodsFor!
+setSize: anInteger
+	cards := (1 to: anInteger squared) collect: [:each | true asValue]  
+
+! !
+!CalculationSolitaireBoard categoriesFor: #setSize:!public! !
+
+!CalculationSolitaireGame methodsFor!
+createCardPresenters 
+	self clearExistingCardPresenters.
+	self view layoutManager rows: self model size. 
+	self model cards do: 	
+			 [:eachCard|
+			 |cp|
+			 cp := CardBackCell createIn: self on: eachCard.
+			 cardPresenters add: cp]! !
+!CalculationSolitaireGame categoriesFor: #createCardPresenters!public! !
+
+!CardBackCell class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.CardBackCellView) 98 12 0 0 98 2 8 1140850688 1 416 721990 2 ##(Smalltalk.ValueHolder) 0 32 1310726 ##(Smalltalk.EqualitySearchPolicy) 16 0 0 7 0 0 0 416 983302 ##(Smalltalk.MessageSequence) 202 208 98 1 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 690 201 281 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 99 15 0 0 150 0 0 0] 98 0 690 193 193 0 27 )! !
+!CardBackCell class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CardBackCell class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.CardBackCellView) 98 12 0 0 98 2 8 1140850688 1 416 721990 2 ##(Smalltalk.ValueHolder) 0 32 1310726 ##(Smalltalk.EqualitySearchPolicy) 16 0 0 7 0 0 0 416 983302 ##(Smalltalk.MessageSequence) 202 208 98 1 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 690 201 281 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 99 15 0 0 150 0 0 0] 98 0 690 193 193 0 27 )! !
+!CardBackCell class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CardBackCell class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.CardBackCellView) 98 12 0 0 98 2 8 1140850688 1 416 721990 2 ##(Smalltalk.ValueHolder) 0 32 1310726 ##(Smalltalk.EqualitySearchPolicy) 16 0 0 7 0 0 0 416 983302 ##(Smalltalk.MessageSequence) 202 208 98 1 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 690 361 211 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 179 15 0 0 115 0 0 0] 98 0 690 193 193 0 27 )! !
+!CardBackCell class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CardBackCell class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.CardBackCellView) 98 12 0 0 98 2 8 1140850688 1 416 721990 2 ##(Smalltalk.ValueHolder) 0 32 1310726 ##(Smalltalk.EqualitySearchPolicy) 16 0 0 7 0 0 0 416 983302 ##(Smalltalk.MessageSequence) 202 208 98 1 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 690 381 501 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 189 15 0 0 4 1 0 0] 98 0 690 193 193 0 27 )! !
+!CardBackCell class categoriesFor: #resource_Default_view!public!resources-views! !
+
+!CardBackCell class methodsFor!
+resource_Default_view
+	"Answer the literal data from which the 'Default view' resource can be reconstituted.
+	DO NOT EDIT OR RECATEGORIZE THIS METHOD.
+
+	If you wish to modify this resource evaluate:
+	ViewComposer openOn: (ResourceIdentifier class: self selector: #resource_Default_view)
+	"
+
+	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy) 8 ##(Smalltalk.CardBackCellView) 98 12 0 0 98 2 8 1140850688 1 416 721990 2 ##(Smalltalk.ValueHolder) 0 32 1310726 ##(Smalltalk.EqualitySearchPolicy) 16 0 0 7 0 0 0 416 983302 ##(Smalltalk.MessageSequence) 202 208 98 1 721670 ##(Smalltalk.MessageSend) 8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point) 7679 21 690 381 501 416 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 14 0 0 10 0 0 0 189 15 0 0 4 1 0 0] 98 0 690 193 193 0 27 )! !
+!CardBackCell class categoriesFor: #resource_Default_view!public!resources-views! !
+
+"3:07:12 PM, Sunday, March 19, 2017: Image saved"!
+
+"3:07:16 PM, Sunday, March 19, 2017: Image saved"!
+
+"3:07:20 PM, Sunday, March 19, 2017: Image saved"!
+
+"3:07:24 PM, Sunday, March 19, 2017: Image saved"!
+
+"3:07:33 PM, Sunday, March 19, 2017: Image saved"!
+
+"3:07:42 PM, Sunday, March 19, 2017: Image saved"!
+
+"5:47:07 PM, Sunday, March 19, 2017: Dolphin Smalltalk Professional started"!

@@ -1,0 +1,120 @@
+1:43:37 PM, Sunday, March 19, 2017: Unhandled exception - a StackOverflow('Recursion too deep; the stack overflowed.')
+
+ProcessorScheduler>>stackOverflow:
+[] in ProcessorScheduler>>vmi:list:no:with:
+BlockClosure>>ifCurtailed:
+ProcessorScheduler>>vmi:list:no:with:
+OrderedCollection>>size
+OrderedCollection(SequenceableCollection)>>identityIndexOf:
+OrderedCollection(SequenceableCollection)>>identityIndexOf:ifAbsent:
+OrderedCollection(SequenceableCollection)>>keyAtValue:ifAbsent:
+IdentitySearchPolicy>>keyAtValue:in:ifAbsent:
+ListModel>>keyAtValue:ifAbsent:
+ListView(ListControlView)>>handleFromObject:ifAbsent:
+[] in ListView(ListControlView)>>handlesFromObjects:whenAbsent:
+Array(ArrayedCollection)>>do:
+ListView(ListControlView)>>handlesFromObjects:whenAbsent:
+ListView>>selections:ifAbsent:
+[] in ListPresenter(SelectableItemsPresenter)>>selections:ifAbsent:
+ListView>>selections:ifAbsent:
+ListPresenter(SelectableItemsPresenter)>>selections:ifAbsent:
+PackageSelector(SelectableItemsPresenter)>>selections:
+PackageSelector>>resetForItems:
+----------------------------------------------------------------------------------------------------
+
+1:43:58 PM, Sunday, March 19, 2017: Unhandled exception - a StackOverflow('Recursion too deep; the stack overflowed.')
+
+ProcessorScheduler>>stackOverflow:
+[] in ProcessorScheduler>>vmi:list:no:with:
+BlockClosure>>ifCurtailed:
+ProcessorScheduler>>vmi:list:no:with:
+OrderedCollection>>size
+OrderedCollection(SequenceableCollection)>>identityIndexOf:
+OrderedCollection(SequenceableCollection)>>identityIndexOf:ifAbsent:
+OrderedCollection(SequenceableCollection)>>keyAtValue:ifAbsent:
+IdentitySearchPolicy>>keyAtValue:in:ifAbsent:
+ListModel>>keyAtValue:ifAbsent:
+ListView(ListControlView)>>handleFromObject:ifAbsent:
+[] in ListView(ListControlView)>>handlesFromObjects:whenAbsent:
+Array(ArrayedCollection)>>do:
+ListView(ListControlView)>>handlesFromObjects:whenAbsent:
+ListView>>selections:ifAbsent:
+[] in ListPresenter(SelectableItemsPresenter)>>selections:ifAbsent:
+ListView>>selections:ifAbsent:
+ListPresenter(SelectableItemsPresenter)>>selections:ifAbsent:
+PackageSelector(SelectableItemsPresenter)>>selections:
+PackageSelector>>resetForItems:
+----------------------------------------------------------------------------------------------------
+
+2:47:54 PM, Sunday, March 19, 2017: Unhandled exception - a MessageNotUnderstood('SmallInteger does not understand #collect:')
+
+SmallInteger(Object)>>doesNotUnderstand:
+CalculationSolitaireBoard>>setSize:
+CalculationSolitaireBoard class>>withSize:
+CalculationSolitaireBoard class>>new
+CalculationSolitaireGame class>>defaultModel
+CalculationSolitaireGame class(Presenter class)>>new
+CalculationSolitaireGame class(Shell class)>>create:
+CalculationSolitaireGame class(Presenter class)>>show:
+ClassHierarchySelector(ClassSelector)>>showPresenter:
+MessageSend>>forwardTo:withArguments:
+MessageSend(MessageSendAbstract)>>forwardTo:
+CommandDescription>>performAgainst:
+[] in Command>>value
+BlockClosure>>ifCurtailed:
+BlockClosure>>ensure:
+Command>>value
+ShellView>>performCommand:
+ClassBrowserShell(Shell)>>performCommand:
+CommandQuery>>perform
+DelegatingCommandPolicy(CommandPolicy)>>route:
+----------------------------------------------------------------------------------------------------
+
+2:49:17 PM, Sunday, March 19, 2017: Unhandled exception - a MessageNotUnderstood('SmallInteger does not understand #collect:')
+
+SmallInteger(Object)>>doesNotUnderstand:
+CalculationSolitaireBoard>>setSize:
+CalculationSolitaireBoard class>>withSize:
+CalculationSolitaireBoard class>>new
+CalculationSolitaireGame class>>defaultModel
+CalculationSolitaireGame class(Presenter class)>>new
+CalculationSolitaireGame class(Shell class)>>create:
+CalculationSolitaireGame class(Presenter class)>>show:
+ClassHierarchySelector(ClassSelector)>>showPresenter:
+MessageSend>>forwardTo:withArguments:
+MessageSend(MessageSendAbstract)>>forwardTo:
+CommandDescription>>performAgainst:
+[] in Command>>value
+BlockClosure>>ifCurtailed:
+BlockClosure>>ensure:
+Command>>value
+ShellView>>performCommand:
+ClassBrowserShell(Shell)>>performCommand:
+CommandQuery>>perform
+DelegatingCommandPolicy(CommandPolicy)>>route:
+----------------------------------------------------------------------------------------------------
+
+2:51:33 PM, Sunday, March 19, 2017: Unhandled exception - an Error('SmallInteger should not implement #size')
+
+SmallInteger(Object)>>error:
+SmallInteger(Object)>>shouldNotImplement
+SmallInteger(Integer)>>size
+CalculationSolitaireBoard>>size
+CalculationSolitaireGame>>createCardPresenters
+CalculationSolitaireGame>>onViewOpened
+CalculationSolitaireGame(Shell)>>view:
+CalculationSolitaireGame(Shell)>>createView:
+CalculationSolitaireGame class(Shell class)>>create:
+CalculationSolitaireGame class(Presenter class)>>show:
+ClassHierarchySelector(ClassSelector)>>showPresenter:
+MessageSend>>forwardTo:withArguments:
+MessageSend(MessageSendAbstract)>>forwardTo:
+CommandDescription>>performAgainst:
+[] in Command>>value
+BlockClosure>>ifCurtailed:
+BlockClosure>>ensure:
+Command>>value
+ShellView>>performCommand:
+ClassBrowserShell(Shell)>>performCommand:
+----------------------------------------------------------------------------------------------------
+
