@@ -1,0 +1,351 @@
+
+Segmentation fault Mon Mar 27 16:57:28 2017
+
+
+VM: 201701281910 https://github.com/OpenSmalltalk/opensmalltalk-vm.git $ Date: Sat Jan 28 11:10:24 2017 -0800 $
+Plugins: 201701281910 https://github.com/OpenSmalltalk/opensmalltalk-vm.git $
+
+C stack backtrace & registers:
+	eax 0x84708e50 ebx 0x7a71ab24 ecx 0x90301065 edx 0x40000000
+	edi 0x7a71ab24 esi 0x7a71ab24 ebp 0xbffba7c8 esp 0xbffba588
+	eip 0x9ef2c013
+0   libobjc.A.dylib                     0x9ef2c013 objc_msgSend + 19
+1   Squeak                              0x00084c93 reportStackState + 706
+2   Squeak                              0x00084feb sigsegv + 113
+3   libsystem_platform.dylib            0x9f98eebb _sigtramp + 43
+4   ???                                 0xffffffff 0x0 + 4294967295
+5   CoreFoundation                      0x94672888 _CFAutoreleasePoolPop + 24
+6   HIToolbox                           0x940209e5 IMKInputSessionProcessEventRefWithCompletionHandler + 125
+7   HIToolbox                           0x9401fb82 InputMethodInstanceProcessEventRef_WithCompletionHandler + 135
+8   HIToolbox                           0x94007c4c __TSMEventToInputMethod_WithCompletionHandler_block_invoke + 121
+9   HIToolbox                           0x9400c3aa __TrySendLockEvent_BeforeEventToInputMethod_WithContinuationHandler_block_invoke + 27
+10  HIToolbox                           0x9400c446 __SendTSMDocumentLockEvent_WithCompletionHandler_block_invoke + 90
+11  HIToolbox                           0x93ddd623 __SendTSMEvent_WithCompletionHandler_block_invoke + 66
+12  HIToolbox                           0x93de05d1 __SendEventToEventTargetWithCompletionHandler_block_invoke + 22
+13  HIToolbox                           0x93de05b4 ___ZL23DispatchEventToHandlersP14EventTargetRecP14OpaqueEventRefP14HandlerCallRec_block_invoke + 106
+14  AppKit                              0x9270a283 ___NSTSMEventHandler_block_invoke + 22
+15  AppKit                              0x9270478f -[NSTextInputContext handleTSMEvent:completionHandler:] + 3125
+16  AppKit                              0x92703b0c _NSTSMEventHandler + 231
+17  HIToolbox                           0x93de402e _Z22_InvokeEventHandlerUPPP25OpaqueEventHandlerCallRefP14OpaqueEventRefPvPFlS0_S2_S3_E + 26
+18  HIToolbox                           0x93d8fa92 _ZL23DispatchEventToHandlersP14EventTargetRecP14OpaqueEventRefP14HandlerCallRec + 2013
+19  HIToolbox                           0x93d8ec08 _ZL30SendEventToEventTargetInternalP14OpaqueEventRefP20OpaqueEventTargetRefP14HandlerCallRec + 419
+20  HIToolbox                           0x93d8ea57 SendEventToEventTargetWithOptions + 40
+21  HIToolbox                           0x93ddd492 SendTSMEvent_WithCompletionHandler + 869
+22  HIToolbox                           0x94007b93 TrySendLockEvent_BeforeEventToInputMethod_WithContinuationHandler + 320
+23  HIToolbox                           0x940079e3 TSMEventToInputMethod_WithCompletionHandler + 140
+24  HIToolbox                           0x93ddb29f TSMProcessRawKeyEventWithOptionsAndCompletionHandler + 4335
+25  AppKit                              0x92f39ca7 __84-[NSTextInputContext _handleEvent:options:allowingSyntheticEvent:completionHandler:]_block_invoke.1124 + 118
+26  AppKit                              0x92f38d28 __204-[NSTextInputContext tryTSMProcessRawKeyEvent_orSubstitution:dispatchCondition:setupForDispatch:furtherCondition:doubleSpaceSubstitutionCondition:doubleSpaceSubstitutionWork:dispatchTSMWork:continuation:]_block_invoke.1042 + 144
+27  AppKit                              0x92f38e73 -[NSTextInputContext tryDoubleSpaceSubstitution_WithDispatchCondition:dispatchSubstitutionWork:continuation:] + 109
+28  AppKit                              0x92f38b3a -[NSTextInputContext tryTSMProcessRawKeyEvent_orSubstitution:dispatchCondition:setupForDispatch:furtherCondition:doubleSpaceSubstitutionCondition:doubleSpaceSubstitutionWork:dispatchTSMWork:continuation:] + 222
+29  AppKit                              0x92f39640 -[NSTextInputContext _handleEvent:options:allowingSyntheticEvent:completionHandler:] + 1823
+30  AppKit                              0x92f389e5 -[NSTextInputContext _handleEvent:allowingSyntheticEvent:] + 111
+31  AppKit                              0x92702a9b -[NSTextInputContext handleEvent:] + 31
+32  AppKit                              0x92702a07 -[NSView interpretKeyEvents:] + 192
+33  Squeak                              0x0008186e -[sqSqueakOSXOpenGLView keyDown:] + 300
+34  AppKit                              0x92e521db -[NSWindow(NSEventRouting) _reallySendEvent:isDelayedEvent:] + 5876
+35  AppKit                              0x92e50769 -[NSWindow(NSEventRouting) sendEvent:] + 547
+36  AppKit                              0x92cded5e -[NSApplication(NSEvent) sendEvent:] + 3418
+37  Squeak                              0x0007af17 -[SqueakOSXApplication sendEvent:] + 100
+38  Squeak                              0x0007c88b -[sqSqueakOSXApplication(events) pumpRunLoopEventSendAndSignal:] + 100
+39  Squeak                              0x0007c93d -[sqSqueakOSXApplication(events) pumpRunLoop] + 67
+40  Squeak                              0x00083793 nativeIoProcessEvents + 190
+41  Squeak                              0x000837e4 ioProcessEvents + 35
+42  Squeak                              0x000857bd -[sqSqueakMainApplication(events) ioGetNextEvent:] + 23
+43  Squeak                              0x00083863 ioGetNextEvent + 55
+44  Squeak                              0x000470eb primitiveGetNextEvent + 106
+45  ???                                 0x04bfc97a 0x0 + 79677818
+46  Squeak                              0x00012603 interpret + 751
+47  Squeak                              0x00086006 -[sqSqueakMainApplication runSqueak] + 439
+48  Foundation                          0x95e47023 __NSFirePerformWithOrder + 419
+49  CoreFoundation                      0x946d167e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__ + 30
+50  CoreFoundation                      0x946d15d7 __CFRunLoopDoObservers + 391
+51  CoreFoundation                      0x946b1972 __CFRunLoopRun + 1058
+52  CoreFoundation                      0x946b12ea CFRunLoopRunSpecific + 506
+53  CoreFoundation                      0x946b10db CFRunLoopRunInMode + 123
+54  HIToolbox                           0x93db0d36 RunCurrentEventLoopInMode + 268
+55  HIToolbox                           0x93db09f7 ReceiveNextEventCommon + 195
+56  HIToolbox                           0x93db091b _BlockUntilNextEventMatchingListInModeWithFilter + 83
+57  AppKit                              0x9257bfed _DPSNextEvent + 1227
+58  AppKit                              0x92ce0274 -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 1742
+59  AppKit                              0x92cdfb9e -[NSApplication(NSEvent) nextEventMatchingMask:untilDate:inMode:dequeue:] + 132
+60  AppKit                              0x92570c88 -[NSApplication run] + 943
+61  AppKit                              0x9253dc26 NSApplicationMain + 1368
+62  libdyld.dylib                       0x9f7883b5 start + 1
+
+
+Smalltalk stack dump:
+0xbffe8d1c M EventSensor>fetchMoreEvents 0x639e8d0: a(n) EventSensor
+0xbffe8d34 M EventSensor>nextEventFromQueue 0x639e8d0: a(n) EventSensor
+0xbffe8d4c M EventSensor>nextEvent 0x639e8d0: a(n) EventSensor
+0xbffe8d74 M HandMorph>processEvents 0x5b46860: a(n) HandMorph
+0xbffe8d90 M [] in WorldState>doOneCycleNowFor: 0x603bbe0: a(n) WorldState
+0xbffe8db4 M Array(SequenceableCollection)>do: 0x518fb80: a(n) Array
+0xbffe8dd0 M WorldState>handsDo: 0x603bbe0: a(n) WorldState
+0xbffe8df0 M WorldState>doOneCycleNowFor: 0x603bbe0: a(n) WorldState
+0xbffe8e0c M WorldState>doOneCycleFor: 0x603bbe0: a(n) WorldState
+0xbffe8e28 M PasteUpMorph>doOneCycle 0x55f88f0: a(n) PasteUpMorph
+0xbffe8e40 M [] in MorphicProject>spawnNewProcess 0x618a3d8: a(n) MorphicProject
+ 0x6a88a30 s [] in BlockClosure>newProcess
+
+Most recent primitives
+@
+**StackOverflow**
+**StackOverflow**
+utcMicrosecondClock
+//
+primGetNextEvent:
+digitCompare:
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+@
+**StackOverflow**
+**StackOverflow**
+utcMicrosecondClock
+//
+utcMicrosecondClock
+//
+-
+utcMicrosecondClock
+//
+<
+-
+primitiveEnterCriticalSection
+replaceFrom:to:with:startingAt:
+primitiveExitCriticalSection
+<
+-
+<
+yield
+utcMicrosecondClock
+//
+-
+wait
+signal
+utcMicrosecondClock
++
+<
+>=
++
+<
+primSignal:atUTCMicroseconds:
+wait
+signal
+wait
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+utcMicrosecondClock
+>=
+signal
+>=
++
+<
+primSignal:atUTCMicroseconds:
+wait
+utcMicrosecondClock
+//
+@
+actualScreenSize
+utcMicrosecondClock
+//
+digitCompare:
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+@
+**StackOverflow**
+**StackOverflow**
+utcMicrosecondClock
+//
+primGetNextEvent:
+digitCompare:
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+@
+**StackOverflow**
+**StackOverflow**
+utcMicrosecondClock
+//
+utcMicrosecondClock
+//
+-
+utcMicrosecondClock
+//
+<
+-
+primitiveEnterCriticalSection
+replaceFrom:to:with:startingAt:
+primitiveExitCriticalSection
+<
+-
+<
+yield
+utcMicrosecondClock
+//
+-
+wait
+signal
+utcMicrosecondClock
++
+<
+>=
++
+<
+primSignal:atUTCMicroseconds:
+wait
+signal
+wait
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+utcMicrosecondClock
+>=
+signal
+>=
++
+<
+primSignal:atUTCMicroseconds:
+wait
+utcMicrosecondClock
+//
+@
+actualScreenSize
+utcMicrosecondClock
+//
+digitCompare:
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+@
+**StackOverflow**
+**StackOverflow**
+utcMicrosecondClock
+//
+primGetNextEvent:
+digitCompare:
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+@
+**StackOverflow**
+**StackOverflow**
+utcMicrosecondClock
+//
+utcMicrosecondClock
+//
+-
+utcMicrosecondClock
+//
+<
+-
+primitiveEnterCriticalSection
+replaceFrom:to:with:startingAt:
+primitiveExitCriticalSection
+<
+-
+<
+yield
+utcMicrosecondClock
+//
+-
+wait
+signal
+utcMicrosecondClock
++
+<
+>=
++
+<
+primSignal:atUTCMicroseconds:
+wait
+signal
+wait
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+relinquishProcessorForMicroseconds:
+utcMicrosecondClock
+>=
+signal
+>=
++
+<
+primSignal:atUTCMicroseconds:
+wait
+utcMicrosecondClock
+//
+@
+actualScreenSize
+utcMicrosecondClock
+//
+digitCompare:
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+**StackOverflow**
+@
+**StackOverflow**
+**StackOverflow**
+utcMicrosecondClock
+//
+primGetNextEvent:
+
+stack page bytes 4096 available headroom 2788 minimum unused headroom 2992
+
+	(Segmentation fault)
